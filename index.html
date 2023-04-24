@@ -7,11 +7,17 @@
     <title>Static Template</title>    
     <style>
        h1 {
-          text-align: center;
           width: 100%;
           height: 100%;
         }
-
+  
+        h1,
+        h2,
+        h3,
+        p {
+           text-align: center;
+        }
+  
         main {
           max-width: 2000px;
           margin: 0 auto;
@@ -22,8 +28,10 @@
           scroll-snap-type: x mandatory;
           scroll-behavior: smooth;
           scroll-snap-align: center;
+          scroll-snap-stop: always;
           overflow-x: scroll;
-          width: calc(100vw - 2rem);
+          width: 100vw;
+          height: 22rem;
         }
 
         section::-webkit-scrollbar {
@@ -36,6 +44,7 @@
           flex-wrap: nowrap;
           gap: 3.5rem;
           width: fit-content;
+          margin-top: 2rem;
         }
 
         @media screen and (min-width: 768px) {
@@ -61,19 +70,24 @@
           box-sizing: border-box;
           margin: 0px auto;
           overflow: hidden;
-        } 
+          border-radius: 3rem;
+          box-shadow: 0px 0px 18px 2px rgba(0, 0, 0, 0.51);
+        }
 
         div.slide:target .img {
           animation: slideActive 0.8s;
           direction: backwards;
+          border-radius: 3rem;
         }
 
         @keyframes slideActive {
           0% {
-            transform: scale(1.2);
+            transform: scale(1.6);
+            border-radius: 3rem;
           }
           100% {
-            transform: scale(1.0);
+            transform: scale(1);
+            border-radius: 3rem;
           }
         }
 
@@ -107,10 +121,11 @@
 
         .segmentButton {
           padding: 0.25rem 1.5rem;
-          border-radius: 20%;
+          border-radius: 1rem;
           background-color: #ccc;
           cursor: pointer;
           text-align: center;
+          height: 1rem;
         }
 
         @media screen and (min-width: 768px) {
@@ -119,12 +134,23 @@
           }
         }
 
-        .segmentButton:hover {
-          background-color: #aaa;
+        .segmentButton:hover,
+        .segmentButton:target {
+          background-color: #4263eb;
         }
 
         .segmentButton:active {
           background-color: #888;
+        }
+
+        a {
+          display: block;
+          background: #4e9caf;
+        }
+
+        a:target {
+          background-color: blue;
+          color: white;
         }
     </style>
   </head>
@@ -134,7 +160,7 @@
         <p>
           go ahead and disable the javascript 
         </p>
-        <code>cmd + shift + p > 'disable javascript'</code>
+        <p><code>cmd + shift + p > 'disable javascript'</code></p>
         <p>and refresh the page</p>
 
         <noscript>
@@ -166,7 +192,7 @@
               <img class="img" src="https://picsum.photos/id/1006/800" loading="lazy" alt="slide-6" />
             </div>
             <div id="slide-7" class="slide">
-              <img class="img" src="https://picsum.photos/id/1007/800" loading="lazy" alt="slide-7" />
+              <img class="img" src="https://picsum.photos/id/998/800" loading="lazy" alt="slide-7" />
             </div>
             <div id="slide-8" class="slide">
               <img class="img" src="https://picsum.photos/id/1008/800" loading="lazy" alt="slide-8" />
